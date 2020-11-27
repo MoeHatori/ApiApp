@@ -46,6 +46,10 @@ class FavoriteFragment: Fragment() {
         swipeRefreshLayout.setOnRefreshListener {
             updateData()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
         updateData()
     }
 

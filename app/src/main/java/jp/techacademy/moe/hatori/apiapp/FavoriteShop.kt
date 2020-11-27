@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 
-open class FavoriteShop : RealmObject() {
+open class FavoriteShop : RealmObject(), Serializable {
 
     @PrimaryKey
     var id: String = ""

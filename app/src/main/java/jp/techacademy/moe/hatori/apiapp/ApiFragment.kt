@@ -81,6 +81,10 @@ class ApiFragment: Fragment() {
         swipeRefreshLayout.setOnRefreshListener {
             updateData()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
         updateData()
     }
 

@@ -8,6 +8,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_api.*
+import kotlinx.android.synthetic.main.fragment_favorite.*
+import kotlinx.android.synthetic.main.fragment_favorite.recyclerView
+import kotlinx.android.synthetic.main.fragment_favorite.swipeRefreshLayout
 
 
 class MainActivity : AppCompatActivity(), FragmentCallback {
