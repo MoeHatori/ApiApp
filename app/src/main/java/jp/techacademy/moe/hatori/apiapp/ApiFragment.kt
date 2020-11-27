@@ -18,7 +18,7 @@ import java.io.IOException
 
 class ApiFragment: Fragment() {
 
-    private val apiAdapter by lazy { ApiAdapter(requireContext()) }
+    private val apiAdapter by lazy { ApiAdapter(requireContext()) } //adapterクラス
     private val handler = Handler(Looper.getMainLooper())
 
     private var fragmentCallback : FragmentCallback? = null // Fragment -> Activity にFavoriteの変更を通知する

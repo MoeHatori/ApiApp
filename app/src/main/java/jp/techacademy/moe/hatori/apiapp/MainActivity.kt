@@ -3,6 +3,7 @@ package jp.techacademy.moe.hatori.apiapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AlertDialog
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayoutMediator
@@ -32,8 +33,14 @@ class MainActivity : AppCompatActivity(), FragmentCallback {
         }.attach()
     }
 
-    override fun onClickItem(url: String) {
-        WebViewActivity.start(this, url)
+    override fun onClickItem(shop: Shop) {
+        //Log.d("Test",shop.toString())
+        WebViewActivity.start(this, shop)
+    }
+
+    override fun onClickFavoriteItem(favoriteShop: FavoriteShop) {
+        Log.d("Test","クリックされました")
+        WebViewActivity.startFav(this,favoriteShop)
     }
 
     override fun onAddFavorite(shop: Shop) { // Favoriteに追加するときのメソッド(Fragment -> Activity へ通知する)

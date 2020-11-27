@@ -22,7 +22,7 @@ class ApiAdapter(private val context: Context): RecyclerView.Adapter<RecyclerVie
     var onClickDeleteFavorite: ((Shop) -> Unit)? = null
 
     // Itemを押したときのメソッド
-    var onClickItem: ((String) -> Unit)? = null
+    var onClickItem: ((Shop) -> Unit)? = null
 
 
     fun refresh(list: List<Shop>) {
@@ -53,7 +53,7 @@ class ApiAdapter(private val context: Context): RecyclerView.Adapter<RecyclerVie
     class ApiItemViewHolder(view: View): RecyclerView.ViewHolder(view) {
         // レイアウトファイルからidがrootViewのConstraintLayoutオブジェクトを取得し、代入
         val rootView : ConstraintLayout = view.findViewById(R.id.rootView)
-        // レイアウトファイルからidがnameTextViewのCTextViewオブジェクトを取得し、代入
+        // レイアウトファイルからidがnameTextViewのTextViewオブジェクトを取得し、代入
         val nameTextView: TextView = view.findViewById(R.id.nameTextView)
         // レイアウトファイルからidがimageViewのImageViewオブジェクトを取得し、代入
         val imageView: ImageView = view.findViewById(R.id.imageView)
@@ -88,7 +88,7 @@ class ApiAdapter(private val context: Context): RecyclerView.Adapter<RecyclerVie
                 setBackgroundColor(ContextCompat.getColor(context,
                     if (position % 2 == 0) android.R.color.white else android.R.color.darker_gray))
                 setOnClickListener {
-                    onClickItem?.invoke(if (data.couponUrls.sp.isNotEmpty()) data.couponUrls.sp else data.couponUrls.pc)
+                    onClickItem?.invoke(data)
                 }
             }
             // nameTextViewのtextプロパティに代入されたオブジェクトのnameプロパティを代入

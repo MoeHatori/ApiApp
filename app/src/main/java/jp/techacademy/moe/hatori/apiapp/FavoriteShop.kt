@@ -4,14 +4,18 @@ package jp.techacademy.moe.hatori.apiapp
 import io.realm.Realm
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
+import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
-open class FavoriteShop: RealmObject() {
+
+open class FavoriteShop : RealmObject() {
 
     @PrimaryKey
     var id: String = ""
     var imageUrl: String = ""
     var name: String = ""
     var url: String = ""
+    var address: String = ""
 
     companion object {
         fun findAll(): List<FavoriteShop> = // お気に入りのShopを全件取得

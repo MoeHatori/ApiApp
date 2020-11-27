@@ -56,4 +56,3 @@
         app:layout_constraintEnd_toStartOf="@id/favoriteImageView"
         app:layout_constraintStart_toEndOf="@id/imageView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
-

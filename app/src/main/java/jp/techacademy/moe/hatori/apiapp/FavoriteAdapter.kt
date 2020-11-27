@@ -21,7 +21,7 @@ class FavoriteAdapter(private val context: Context): RecyclerView.Adapter<Recycl
     var onClickDeleteFavorite: ((FavoriteShop) -> Unit)? = null
 
     // Itemを押したときのメソッド
-    var onClickItem: ((String) -> Unit)? = null
+    var onClickFavoriteItem: ((FavoriteShop) -> Unit)? = null
 
     // 更新用のメソッド
     fun refresh(list: List<FavoriteShop>) {
@@ -66,10 +66,12 @@ class FavoriteAdapter(private val context: Context): RecyclerView.Adapter<Recycl
             rootView.apply {
                 setBackgroundColor(ContextCompat.getColor(context, if (position % 2 == 0) android.R.color.white else android.R.color.darker_gray)) // 偶数番目と機数番目で背景色を変更させる
                 setOnClickListener {
-                    onClickItem?.invoke(data.url)
+                    onClickFavoriteItem?.invoke(data)
                 }
             }
             nameTextView.text = data.name
+            addressTextView.text = data.address
+
             Picasso.get().load(data.imageUrl).into(imageView) // Picassoというライブラリを使ってImageVIewに画像をはめ込む
             favoriteImageView.setOnClickListener {
                 onClickDeleteFavorite?.invoke(data)
@@ -84,6 +86,7 @@ class FavoriteAdapter(private val context: Context): RecyclerView.Adapter<Recycl
         val nameTextView: TextView = view.findViewById(R.id.nameTextView)
         val imageView: ImageView = view.findViewById(R.id.imageView)
         val favoriteImageView: ImageView = view.findViewById(R.id.favoriteImageView)
+        val addressTextView: TextView = view.findViewById(R.id.addressTextView)
     }
 
     // お気に入り登録がまだ行われていないとき
